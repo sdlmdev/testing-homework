@@ -66,3 +66,21 @@ npm start
 Как передать `bug id`:
 - при запуске интеграционных тестов передавайте значение в параметре запроса, например, http://localhost:3000/hw/store/catalog/0?bug_id=9
 - при запуске модульных тестов передавайте значение в переменной окружения `BUG_ID`, например, `BUG_ID=1 npm run test`
+
+## Запуск Playwright
+
+В package.json можно установить BUG_ID от 0 до 10, где 0 - запуск без багов (для запуска с багом npm run start-bug)
+
+При отсутствии эталонных скриншотов первый запуск теста (использующий скриншотное тестирование) упадет, добавив необходимые изображения (последующие прогоны будут работать с имеющимися изображениями)
+
+### Текущие сценарии
+
+- `npx playwright test adaptive.spec.ts`
+- `npx playwright test cart.spec.ts`
+- `npx playwright test catalog.spec.ts`
+- `npx playwright test header.spec.ts`
+- `npx playwright test pages.spec.ts`
+
+### Запуск в интерактивном режиме
+
+- `npx playwright test --ui`
